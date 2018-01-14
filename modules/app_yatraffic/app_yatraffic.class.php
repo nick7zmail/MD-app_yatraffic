@@ -29,7 +29,7 @@ function app_yatraffic() {
 *
 * @access public
 */
-function saveParams() {
+function saveParams($data='') {
  $p=array();
  if (IsSet($this->id)) {
   $p["id"]=$this->id;
@@ -318,7 +318,7 @@ if($updateTime > 0){
 *
 * @access private
 */
- function install() {
+ function install($data='') {
  subscribeToEvent($this->name, 'HOURLY');
  $className = 'ya_traffic';
  $objectName = array('yt_settings', 'yt_info');
