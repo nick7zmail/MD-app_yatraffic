@@ -15,7 +15,7 @@
 	<select class="form-control" name="meth1">
 		<option value="auto" [#if meth1=="auto"#] selected[#endif#]>На автомобиле</option>
 		<option value="masstransit" [#if meth1=="masstransit"#] selected[#endif#]>Общ. транспорт</option>
-	</select> 
+	</select>
 	</div>
 </div>
 <div class="form-group">
@@ -30,7 +30,7 @@
 	<select class="form-control" name="meth2">
 		<option value="auto" [#if meth2=="auto"#] selected[#endif#]>На автомобиле</option>
 		<option value="masstransit" [#if meth2=="masstransit"#] selected[#endif#]>Общ. транспорт</option>
-	</select> 
+	</select>
 	</div>
 </div>
 <div class="form-group">
@@ -60,7 +60,7 @@
 	<select class="form-control" name="meth4">
 		<option value="auto" [#if meth4=="auto"#] selected[#endif#]>На автомобиле</option>
 		<option value="masstransit" [#if meth4=="masstransit"#] selected[#endif#]>Общ. транспорт</option>
-	</select> 
+	</select>
 	</div>
 </div>
 <div class="form-group">
@@ -90,6 +90,8 @@
 	<select class="form-control" name="meth6">
 		<option value="auto" [#if meth6=="auto"#] selected[#endif#]>На автомобиле</option>
 		<option value="masstransit" [#if meth6=="masstransit"#] selected[#endif#]>Общ. транспорт</option>
+		<option value="pedestrian" [#if meth6=="pedestrian"#] selected[#endif#]>Пешком</option>
+		<option value="taxi" [#if meth6=="taxi"#] selected[#endif#]>Такси</option>
 	</select>
 	</div>
 </div>
@@ -159,6 +161,14 @@
 	<input type="text" name="height" class="form-control" placeholder="Высота" value="[#height#]">
 	</div>
 </div>
+
+<div class="form-group">
+	<label class="col-md-5">Апи-ключ (Обязательно)</label>
+	<div class="col-md-3">
+	<input type="text" name="apikey" class="form-control" placeholder="Ключ" value="[#apikey#]">
+	</div>
+</div>
+
 <button type="submit" name="subm" value="routes" class="btn btn-primary"><#LANG_SUBMIT#></button>
 <a href="?" class="btn btn-default"><#LANG_CANCEL#></a>
 </form>

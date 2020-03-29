@@ -11,11 +11,13 @@
 		</div>
 	[#end TRAFFIC#]
 [#endif TRAFFIC#]
+[#if MULTI_ROUTES || ROUTES#]
+<script src="https://api-maps.yandex.ru/2.1?apikey=[#apikey#]&lang=ru-RU" type="text/javascript"></script>
+[#endif#]
 [#if ROUTES#]
 	[#begin ROUTES#]
 	<div class="yt_all" style="height:[#height#]px">
 	<div class="yt_title">Маршруты</div>
-	 <script src="http://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
 		<script type="text/javascript">
 			ymaps.ready(init);
 			function init () {
@@ -43,10 +45,10 @@
 							alert('Возникла ошибка: ' + error.message);
 						});
 					}
-				})(j)}	
+				})(j)}
 			}
 		</script>
-		<div id="map" style="width: 0px; height: 0px"> </div> 
+		<div id="map" style="width: 0px; height: 0px"> </div>
 		<table style = 'border: 0;'>
 		<tr>
 			<td>
@@ -136,10 +138,6 @@
 [#begin MULTI_ROUTES#]
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="https://yandex.st/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <style>
         #map {
             width: 100%; height: [#map#]px;
@@ -184,16 +182,16 @@
 				route_meth[8]='[#meth8#]'
 				route_meth[9]='[#meth9#]'
 				route_meth[10]='[#meth10#]'
-				
+
 	for (var i=1;i<11;i++) {
-	if (route_arr[i] != null ) {	
+	if (route_arr[i] != null ) {
 	multiRouteModel[i] = new ymaps.multiRouter.MultiRouteModel(route_arr[i], {
         wayPointDraggable: true,
         boundsAutoApply: true
     });
 	}}
 	for (var i=1;i<11;i++) {
-	if (route_arr[i] != null ) {	
+	if (route_arr[i] != null ) {
 	multiRouteModel[i].setParams({ routingMode: route_meth[i] }, true);
 	multiRouteModel[i].setParams({ avoidTrafficJams: true }, true);
 	}}
@@ -216,12 +214,9 @@
 
 ymaps.ready(init);
 </script>
-</head>
 
-<body>
-    <div id="map"></div>
-    <div id="viewContainer"></div>
-</body>
+<div id="map"></div>
+<div id="viewContainer"></div>
 
 </html>
 [#end MULTI_ROUTES#]
